@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+# Legacy spam and hacked URL patterns to retire
+Disallow: /saiga.php
+Disallow: /saiga/
+Disallow: /products/
+
+Sitemap: https://ibmsa.com.au/sitemap.xml
+Sitemap: https://ibmsa.com.au/sitemap-en.xml
+Sitemap: https://ibmsa.com.au/sitemap-fr.xml
