@@ -1,0 +1,31 @@
+# IBMSA — International Business Management Services
+
+> IBMSA helps SMEs, founders, community organisations, and growth-focused teams across Australia, Cameroon, and Africa with strategic planning, business development, digital marketing, coaching, and technology support.
+
+## Core language paths
+- /en/index.html: English homepage
+- /fr/index.html: Page d'accueil française
+
+## Core services
+- /en/strategic-planning.html: Strategic planning and business turnaround
+- /en/business-development.html: Business development and growth
+- /en/coaching-mentoring.html: Coaching and mentoring
+- /en/digital-marketing.html: Digital marketing
+- /en/technology-support.html: Technology support
+- /en/social-media-management.html: Social media management
+- /en/training-conferences.html: Training and conferences
+
+## French services
+- /fr/planification-strategique.html
+- /fr/developpement-commercial.html
+- /fr/coaching-mentorat.html
+- /fr/marketing-digital.html
+- /fr/support-technologique.html
+- /fr/gestion-reseaux-sociaux.html
+- /fr/formations-conferences.html
+
+## Trust and contact
+- /en/about.html
+- /fr/a-propos.html
+- /en/contact.html
+- /fr/contact.html
