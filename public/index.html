@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#4F46E5">
+    <meta name="description" content="Create beautiful mobile-first blogs with BlogBuilder - The easiest blog platform for Africa">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="assets/icons/icon-192.png">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="BlogBuilder">
+    <meta name="msapplication-TileColor" content="#4F46E5">
+    <meta name="msapplication-tap-highlight" content="no">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="BlogBuilder - Create Beautiful Blogs">
+    <meta property="og:description" content="The easiest mobile-first blog builder for Africa">
+    <meta property="og:image" content="assets/images/og-image.jpg">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="BlogBuilder">
+    <meta name="twitter:description" content="Create beautiful mobile-first blogs">
+    
+    <title>BlogBuilder - Create Beautiful Mobile-First Blogs</title>
+    
+    <!-- Preconnect to API -->
+    <link rel="preconnect" href="">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "BlogBuilder",
+        "description": "Mobile-first blog builder platform",
+        "applicationCategory": "WritingApplication",
+        "operatingSystem": "Web",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        }
+    }
+    </script>
+</head>
+<body>
+    <!-- App Shell -->
+    <div id="app">
+        <!-- Loading Screen -->
+        <div id="loading-screen" class="loading-screen">
+            <div class="loading-spinner"></div>
+            <p>Loading BlogBuilder...</p>
+        </div>
+        
+        <!-- Navigation -->
+        <nav id="navbar" class="navbar hidden">
+            <div class="nav-container">
+                <a href="/" class="nav-brand">
+                    <span class="brand-icon">📝</span>
+                    <span class="brand-text">BlogBuilder</span>
+                </a>
+                
+                <button id="menu-toggle" class="menu-toggle" aria-label="Toggle menu">
+                    <span class="hamburger"></span>
+                </button>
+                
+                <div id="nav-menu" class="nav-menu">
+                    <a href="/" class="nav-link">Home</a>
+                    <a href="/explore" class="nav-link">Explore</a>
+                    <a href="#" id="nav-create" class="nav-link nav-primary hidden">Create</a>
+                    <a href="#" id="nav-login" class="nav-link">Login</a>
+                    <a href="#" id="nav-register" class="nav-link nav-primary">Sign Up</a>
+                    <a href="#" id="nav-dashboard" class="nav-link hidden">Dashboard</a>
+                    <a href="#" id="nav-logout" class="nav-link hidden">Logout</a>
+                </div>
+            </div>
+        </nav>
+        
+        <!-- Main Content -->
+        <main id="main-content">
+            <!-- Views will be injected here -->
+        </main>
+        
+        <!-- Bottom Navigation (Mobile) -->
+        <nav id="bottom-nav" class="bottom-nav hidden">
+            <a href="/" class="bottom-nav-item active">
+                <span class="nav-icon">🏠</span>
+                <span class="nav-label">Home</span>
+            </a>
+            <a href="/explore" class="bottom-nav-item">
+                <span class="nav-icon">🔍</span>
+                <span class="nav-label">Explore</span>
+            </a>
+            <a href="#" id="bottom-create" class="bottom-nav-item hidden">
+                <span class="nav-icon">✏️</span>
+                <span class="nav-label">Create</span>
+            </a>
+            <a href="#" id="bottom-profile" class="bottom-nav-item hidden">
+                <span class="nav-icon">👤</span>
+                <span class="nav-label">Profile</span>
+            </a>
+        </nav>
+        
+        <!-- Footer -->
+        <footer id="footer" class="footer hidden">
+            <div class="footer-content">
+                <p>&copy; 2024 BlogBuilder. Made with ❤️ for Africa.</p>
+                <div class="footer-links">
+                    <a href="#">About</a>
+                    <a href="#">Privacy</a>
+                    <a href="#">Terms</a>
+                    <a href="#">Contact</a>
+                </div>
+            </div>
+        </footer>
+        
+        <!-- Toast Notifications -->
+        <div id="toast-container" class="toast-container"></div>
+        
+        <!-- Install PWA Prompt -->
+        <div id="install-prompt" class="install-prompt hidden">
+            <div class="prompt-content">
+                <p>📱 Install BlogBuilder for a better experience!</p>
+                <div class="prompt-actions">
+                    <button id="install-btn" class="btn btn-primary">Install</button>
+                    <button id="dismiss-install" class="btn btn-secondary">Later</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Templates -->
+    <template id="home-view">
+        <div class="view home-view">
+            <section class="hero">
+                <h1>Create Beautiful Blogs</h1>
+                <p>Share your stories with Africa and the world. Free, fast, and mobile-first.</p>
+                <div class="hero-actions">
+                    <a href="#" class="btn btn-primary btn-lg" data-action="register">Start Writing</a>
+                    <a href="/explore" class="btn btn-outline btn-lg">Explore Blogs</a>
+                </div>
+            </section>
+            
+            <section class="featured-posts">
+                <h2>Trending Now 🔥</h2>
+                <div id="trending-posts" class="posts-grid"></div>
+            </section>
+            
+            <section class="features">
+                <h2>Why BlogBuilder?</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🚀</div>
+                        <h3>Lightning Fast</h3>
+                        <p>Optimized for African internet speeds</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📱</div>
+                        <h3>Mobile First</h3>
+                        <p>Perfect on any device</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">💰</div>
+                        <h3>Earn Rewards</h3>
+                        <p>Get credits for inviting friends</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🌐</div>
+                        <h3>SEO Optimized</h3>
+                        <p>Rank higher on Google</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </template>
+    
+    <template id="login-view">
+        <div class="view auth-view">
+            <div class="auth-card">
+                <h2>Welcome Back</h2>
+                <form id="login-form" class="auth-form">
+                    <div class="form-group">
+                        <label for="login-email">Email</label>
+                        <input type="email" id="login-email" required autocomplete="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="login-password">Password</label>
+                        <input type="password" id="login-password" required autocomplete="current-password">
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Login</button>
+                </form>
+                <p class="auth-switch">Don't have an account? <a href="#" data-view="register">Sign up</a></p>
+            </div>
+        </div>
+    </template>
+    
+    <template id="register-view">
+        <div class="view auth-view">
+            <div class="auth-card">
+                <h2>Create Account</h2>
+                <form id="register-form" class="auth-form">
+                    <div class="form-group">
+                        <label for="register-username">Username</label>
+                        <input type="text" id="register-username" required pattern="[a-zA-Z0-9_]{3,30}" 
+                               placeholder="3-30 characters, letters, numbers, underscores">
+                    </div>
+                    <div class="form-group">
+                        <label for="register-email">Email</label>
+                        <input type="email" id="register-email" required autocomplete="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="register-password">Password</label>
+                        <input type="password" id="register-password" required minlength="6" autocomplete="new-password">
+                    </div>
+                    <div class="form-group">
+                        <label for="register-referral">Referral Code (Optional)</label>
+                        <input type="text" id="register-referral" placeholder="ref_xxxxxxxxxx">
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Create Account</button>
+                </form>
+                <p class="auth-switch">Already have an account? <a href="#" data-view="login">Login</a></p>
+            </div>
+        </div>
+    </template>
+    
+    <template id="dashboard-view">
+        <div class="view dashboard-view">
+            <div class="dashboard-header">
+                <h1>Dashboard</h1>
+                <button id="create-post-btn" class="btn btn-primary">New Post</button>
+            </div>
+            
+            <div class="dashboard-grid">
+                <aside class="dashboard-sidebar">
+                    <div class="user-card">
+                        <img id="user-avatar" src="assets/images/default-avatar.png" alt="Avatar" class="user-avatar">
+                        <h3 id="user-display-name">User</h3>
+                        <p id="user-username">@username</p>
+                    </div>
+                    
+                    <nav class="dashboard-nav">
+                        <a href="#" class="dash-link active" data-section="posts">My Posts</a>
+                        <a href="#" class="dash-link" data-section="referrals">Referrals 🎁</a>
+                        <a href="#" class="dash-link" data-section="analytics">Analytics</a>
+                        <a href="#" class="dash-link" data-section="settings">Settings</a>
+                    </nav>
+                </aside>
+                
+                <main class="dashboard-content">
+                    <section id="dash-posts" class="dash-section">
+                        <h2>My Posts</h2>
+                        <div id="my-posts" class="posts-list"></div>
+                    </section>
+                    
+                    <section id="dash-referrals" class="dash-section hidden">
+                        <h2>Invite Friends & Earn Rewards 🎁</h2>
+                        <div class="referral-widget">
+                            <div class="referral-code-box">
+                                <p>Your Referral Code:</p>
+                                <div class="code-display">
+                                    <code id="referral-code">ref_XXXXXXXXXX</code>
+                                    <button id="copy-code" class="btn btn-icon" title="Copy">📋</button>
+                                </div>
+                                <p class="referral-link" id="referral-link">https://blogbuilder.com/?ref=XXXXXXXXXX</p>
+                            </div>
+                            
+                            <div class="referral-stats">
+                                <div class="stat-card">
+                                    <h3 id="stat-total">0</h3>
+                                    <p>Total Invites</p>
+                                </div>
+                                <div class="stat-card">
+                                    <h3 id="stat-confirmed">0</h3>
+                                    <p>Confirmed</p>
+                                </div>
+                                <div class="stat-card">
+                                    <h3 id="stat-credits">0</h3>
+                                    <p>Credits Earned</p>
+                                </div>
+                            </div>
+                            
+                            <div class="share-options">
+                                <h4>Share via:</h4>
+                                <button class="btn btn-share" data-platform="whatsapp">WhatsApp</button>
+                                <button class="btn btn-share" data-platform="facebook">Facebook</button>
+                                <button class="btn btn-share" data-platform="twitter">Twitter</button>
+                            </div>
+                            
+                            <div class="reward-tiers">
+                                <h4>Reward Tiers</h4>
+                                <div id="tiers-container"></div>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <section id="dash-analytics" class="dash-section hidden">
+                        <h2>Analytics</h2>
+                        <p>Your blog analytics will appear here.</p>
+                    </section>
+                    
+                    <section id="dash-settings" class="dash-section hidden">
+                        <h2>Settings</h2>
+                        <p>Account settings will appear here.</p>
+                    </section>
+                </main>
+            </div>
+        </div>
+    </template>
+    
+    <!-- Scripts -->
+    <script src="js/app.js" defer></script>
+    <script src="js/auth.js" defer></script>
+    <script src="js/referral.js" defer></script>
+    <script src="js/router.js" defer></script>
+</body>
+</html>
